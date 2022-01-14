@@ -24,7 +24,7 @@ of common payments usecases, including:
 
 We're in active development. For the latest updates, please join our community:
 
-- Twitter: https://twitter.com/VenkoApp
+- Twitter: <https://twitter.com/VenkoApp>
 
 ## Note
 
