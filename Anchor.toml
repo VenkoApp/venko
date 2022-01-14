@@ -1,0 +1,25 @@
+anchor_version = "0.20.1"
+solana_version = "1.8.11"
+
+[scripts]
+test = "yarn mocha"
+
+[provider]
+cluster = "localnet"
+wallet = "./tests/spec-key.json"
+
+[[test.genesis]]
+address = "CRATwLpu6YZEeiVq9ajjxs61wPQ9f29s1UoQR9siJCRs"
+program = "./artifacts/deploy/crate_token.so"
+
+[programs.localnet]
+venko = "AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"
+
+[programs.devnet]
+venko = "AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"
+
+[programs.testnet]
+venko = "AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"
+
+[programs.mainnet]
+venko = "AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ"
