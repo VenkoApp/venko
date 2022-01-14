@@ -3,7 +3,7 @@
 use crate::*;
 use num_traits::ToPrimitive;
 
-/// A payments stream, with a cliff and an optional [Self::revoker].
+/// A stream of tokens being sent, with a cliff and an optional [Self::revoker].
 ///
 /// When a [Stream] is created, there is one token created for every underlying
 /// token backing the [Stream].

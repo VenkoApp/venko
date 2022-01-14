@@ -15,10 +15,10 @@ Venko: Rails for realtime finance on Solana.
 
 ## About
 
-Venko is a protocol for issuing tokenized payments streams. It is designed for a variety
-of common payments usecases, including:
+Venko is a protocol for issuing streams of tokens. It is designed for a variety
+of usecases, including:
 
-- **Token lockups.** Issue team tokens.
+- **Token lockups.** Issue team tokens over a schedule, irrevocably.
 - **Grants.** Issue revocable grants with a cliff and release schedule.
 - **Escrow.** Send tokens to someone with a cancellation period, allowing you to cancel the payment if it was sent to the wrong address.
 

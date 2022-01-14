@@ -1,13 +1,13 @@
 [package]
 name = "venko"
 version = "0.1.0"
-description = "Program for issuing streaming payments on Solana."
+description = "Program for issuing token streams on Solana."
 edition = "2021"
 homepage = "https://venko.app"
 repository = "https://github.com/VenkoApp/venko"
 authors = ["Venko Team <team@venko.app>"]
 license = "AGPL-3.0"
-keywords = ["solana", "anchor", "payments", "venko"]
+keywords = ["solana", "anchor", "finance", "venko"]
 
 [lib]
 crate-type = ["cdylib", "lib"]
