@@ -22,6 +22,32 @@ of common payments usecases, including:
 - **Grants.** Issue revocable grants with a cliff and release schedule.
 - **Escrow.** Send tokens to someone with a cancellation period, allowing you to cancel the payment if it was sent to the wrong address.
 
+We're in active development. For the latest updates, please join our community:
+
+- Twitter: https://twitter.com/VenkoApp
+
+## Note
+
+- **Venko is in active development, so all APIs are subject to change.**
+- **This code is unaudited. Use at your own risk.**
+
+## Addresses
+
+Program addresses are the same on devnet, testnet, and mainnet-beta.
+
+- Venko: [`AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ`](https://explorer.solana.com/address/AnatoLyYrd5iaAe36Lvq2oS4nuVDnRAb3KBVCARt4XiZ)
+
+## Contribution
+
+Thank you for your interest in contributing to Venko Protocol! All contributions are welcome no matter how big or small. This includes
+(but is not limited to) filing issues, adding documentation, fixing bugs, creating examples, and implementing features.
+
+When contributing, please make sure your code adheres to some basic coding guidlines:
+
+- Code must be formatted with the configured formatters (e.g. `rustfmt` and `prettier`).
+- Comment lines should be no longer than 80 characters and written with proper grammar and punctuation.
+- Commit messages should be prefixed with the package(s) they modify. Changes affecting multiple packages should list all packages. In rare cases, changes may omit the package name prefix.
+
 ## License
 
 Venko Protocol is licensed under the GNU Affero General Public License v3.0.
