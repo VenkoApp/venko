@@ -35,7 +35,7 @@ describe("Venko", () => {
     ).wait();
   });
 
-  it("should allow creating an irrevocable payments stream", async () => {
+  it("should allow creating an irrevocable stream", async () => {
     const underlyingToken = Token.fromMint(
       await createMint(adminSDK.provider, undefined, 6),
       6

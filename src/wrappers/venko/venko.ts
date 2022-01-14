@@ -228,4 +228,53 @@ export class VenkoWrapper {
       ),
     ]);
   }
+
+  /**
+   * Revokes a Stream.
+   * @returns
+   */
+  async revoke({
+    streamMint,
+    owner = this.provider.wallet.publicKey,
+    revoker = this.provider.wallet.publicKey,
+  }: {
+    /**
+     * The mint of the Stream to revoke.
+     */
+    streamMint: PublicKey;
+    /**
+     * Owner to send the tokens to.
+     */
+    owner?: PublicKey;
+    revoker?: PublicKey;
+  }): Promise<TransactionEnvelope> {
+    const [stream] = await findStreamAddress(streamMint);
+    const streamData = await this.fetchStream(stream);
+    if (!streamData) {
+      throw new Error(`stream not found: ${stream.toString()}`);
+    }
+    const ownerATAs = await getOrCreateATAs({
+      provider: this.provider,
+      mints: {
+        underlying: streamData.underlyingMint,
+      },
+      owner,
+    });
+    return this.provider.newTX([
+      ...ownerATAs.instructions,
+      VENKO_CODERS.Venko.encodeIX(
+        "revoke",
+        {},
+        {
+          stream,
+          crateToken: streamData.crateToken,
+          underlyingTokens: streamData.underlyingTokens,
+          destinationTokens: ownerATAs.accounts.underlying,
+          revoker,
+          crateTokenProgram: CRATE_ADDRESSES.CrateToken,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        }
+      ),
+    ]);
+  }
 }
