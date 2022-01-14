@@ -37,19 +37,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@crateprotocol/crate-sdk@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@crateprotocol/crate-sdk@npm:0.4.0"
+"@crateprotocol/crate-sdk@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@crateprotocol/crate-sdk@npm:0.4.1"
   dependencies:
     tiny-invariant: ^1.2.0
     tslib: ^2.3.1
   peerDependencies:
-    "@project-serum/anchor": ^0.19
+    "@project-serum/anchor": ">=0.19"
     "@saberhq/anchor-contrib": ^1.11
     "@saberhq/solana-contrib": ^1.11
     "@saberhq/token-utils": ^1.11
     "@solana/web3.js": ^1.29.2
-  checksum: 2e595da9d4c1987a4b6bbec88eb409897985205715cd1c138d1d9acfbe6867b31fb3732867fc4cc4d28d210b128c4fd217d45bdd62e317fcd4665f0e67dc13fa
+  checksum: 98318d91f00151d30a3bfd8812df8ce0fb25d242ab6904fcf861078e22b893e18be030565f03c8799c011de3a3388d18187c6a8d2066a5b9ee8760086c468e03
   languageName: node
   linkType: hard
 
@@ -808,7 +808,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@venkoapp/venko@workspace:."
   dependencies:
-    "@crateprotocol/crate-sdk": ^0.4.0
+    "@crateprotocol/crate-sdk": ^0.4.1
     "@gokiprotocol/client": ^0.5.4
     "@project-serum/anchor": ^0.20.1
     "@rushstack/eslint-patch": ^1.1.0

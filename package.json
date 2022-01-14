@@ -87,7 +87,7 @@
     "*.{js,json,jsx,html,css,md}": "prettier --write"
   },
   "dependencies": {
-    "@crateprotocol/crate-sdk": "^0.4.0",
+    "@crateprotocol/crate-sdk": "^0.4.1",
     "tiny-invariant": "^1.2.0",
     "tslib": "^2.3.1"
   },
