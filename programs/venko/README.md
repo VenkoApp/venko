@@ -1,4 +1,4 @@
-# venko
+# venko ✌️
 
 [![Crates.io](https://img.shields.io/crates/v/venko)](https://crates.io/crates/venko)
 [![Docs.rs](https://img.shields.io/docsrs/venko)](https://docs.rs/venko)
