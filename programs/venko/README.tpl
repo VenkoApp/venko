@@ -1,4 +1,4 @@
-# {{crate}}
+# {{crate}} ✌️
 
 [![Crates.io](https://img.shields.io/crates/v/{{crate}})](https://crates.io/crates/{{crate}})
 [![Docs.rs](https://img.shields.io/docsrs/{{crate}})](https://docs.rs/{{crate}})
