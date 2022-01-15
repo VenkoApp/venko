@@ -1,6 +1,6 @@
 [package]
 name = "venko"
-version = "0.1.0"
+version = "0.1.1"
 description = "Program for issuing token streams on Solana."
 edition = "2021"
 homepage = "https://venko.app"
