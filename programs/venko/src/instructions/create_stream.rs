@@ -101,7 +101,7 @@ impl<'info> CreateStream<'info> {
         start_ts: i64,
         cliff_ts: i64,
         end_ts: i64,
-        revoker: Option<Pubkey>,
+        revoker: Pubkey,
     ) -> ProgramResult {
         let stream = &mut self.stream;
         stream.mint = self.stream_mint.key();
@@ -129,7 +129,7 @@ pub fn handler(
     start_ts: i64,
     cliff_ts: i64,
     end_ts: i64,
-    revoker: Option<Pubkey>,
+    revoker: Pubkey,
 ) -> ProgramResult {
     invariant!(end_ts > start_ts, InvalidSchedule);
 

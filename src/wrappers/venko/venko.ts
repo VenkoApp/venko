@@ -14,8 +14,8 @@ import {
   Token,
   TOKEN_PROGRAM_ID,
 } from "@saberhq/token-utils";
-import type { PublicKey, Signer } from "@solana/web3.js";
-import { Keypair, SystemProgram } from "@solana/web3.js";
+import type { Signer } from "@solana/web3.js";
+import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
 import BN from "bn.js";
 
 import { VENKO_CODERS } from "../..";
@@ -154,7 +154,7 @@ export class VenkoWrapper {
                 startTs: new BN(startTS),
                 cliffTs: new BN(cliffTS),
                 endTs: new BN(endTS),
-                revoker: revoker ?? null,
+                revoker: revoker ?? PublicKey.default,
               },
               {
                 streamMint: mintKP.publicKey,

@@ -16,7 +16,8 @@ pub struct Stream {
     pub bump: u8,
 
     /// An optional account which may invalidate this stream and receive all of the underlying tokens.
-    pub revoker: Option<Pubkey>,
+    /// If the default [Pubkey] is used, it is considered to be irrevocable.
+    pub revoker: Pubkey,
     /// The Crate Token.
     pub crate_token: Pubkey,
     /// The mint of the SPL token locked up.

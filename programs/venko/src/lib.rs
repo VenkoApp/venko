@@ -69,7 +69,7 @@ pub mod venko {
         start_ts: i64,
         cliff_ts: i64,
         end_ts: i64,
-        revoker: Option<Pubkey>,
+        revoker: Pubkey,
     ) -> ProgramResult {
         instructions::create_stream::handler(
             ctx,

@@ -92,13 +92,8 @@ pub struct RevokeEvent {
 
 impl<'info> Validate<'info> for Revoke<'info> {
     fn validate(&self) -> ProgramResult {
-        invariant!(self.stream.revoker.is_some(), Irrevocable);
-        assert_keys_eq!(
-            #[allow(clippy::unwrap_used)]
-            self.stream.revoker.unwrap(),
-            self.revoker,
-            NotRevoker
-        );
+        invariant!(self.stream.revoker != Pubkey::default(), Irrevocable);
+        assert_keys_eq!(self.stream.revoker, self.revoker, NotRevoker);
 
         assert_keys_eq!(self.crate_token, self.stream.crate_token);
         assert_keys_eq!(self.underlying_tokens, self.stream.underlying_tokens);
