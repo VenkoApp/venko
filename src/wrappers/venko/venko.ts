@@ -183,31 +183,37 @@ export class VenkoWrapper {
   async redeem({
     amount,
     owner = this.provider.wallet.publicKey,
+    recipient = this.provider.wallet.publicKey,
   }: {
     /**
      * Amount of Stream tokens to redeem.
      */
     amount: TokenAmount;
     /**
-     * Owner of the initial tokens.
+     * Owner of the Stream tokens.
      */
     owner?: PublicKey;
+    /**
+     * Recipient of the redeemed tokens.
+     */
+    recipient?: PublicKey;
   }): Promise<TransactionEnvelope> {
     const [stream] = await findStreamAddress(amount.token.mintAccount);
     const streamData = await this.fetchStream(stream);
     if (!streamData) {
       throw new Error(`stream not found: ${stream.toString()}`);
     }
-    const ownerATAs = await getOrCreateATAs({
-      provider: this.provider,
-      mints: {
-        underlying: streamData.underlyingMint,
-        stream: amount.token.mintAccount,
-      },
+    const ownerStreamATA = await getATAAddress({
+      mint: amount.token.mintAccount,
       owner,
     });
+    const recipientUnderlyingATA = await getOrCreateATA({
+      provider: this.provider,
+      mint: streamData.underlyingMint,
+      owner: recipient,
+    });
     return this.provider.newTX([
-      ...ownerATAs.instructions,
+      recipientUnderlyingATA.instruction,
       VENKO_CODERS.Venko.encodeIX(
         "redeem",
         {
@@ -216,9 +222,9 @@ export class VenkoWrapper {
         {
           streamMint: amount.token.mintAccount,
           stream,
-          sourceStreamTokens: ownerATAs.accounts.stream,
+          sourceStreamTokens: ownerStreamATA,
           underlyingTokens: streamData.underlyingTokens,
-          destinationTokens: ownerATAs.accounts.underlying,
+          destinationTokens: recipientUnderlyingATA.address,
           crateToken: streamData.crateToken,
           userAuthority: owner,
           systemProgram: SystemProgram.programId,
