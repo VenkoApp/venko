@@ -18,6 +18,9 @@ export const computeRedeemableAmount = (stream: StreamData): u64 => {
   if (nowTs.gte(endTs)) {
     return stream.initialAmount.sub(stream.redeemedAmount);
   }
-  const total = stream.initialAmount.sub(stream.redeemedAmount);
-  return new u64(nowTs.sub(startTs).div(endTs.sub(startTs).mul(total)));
+  const max = nowTs
+    .sub(startTs)
+    .mul(stream.initialAmount)
+    .div(endTs.sub(startTs));
+  return new u64(max.sub(stream.redeemedAmount));
 };
